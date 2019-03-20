@@ -3,7 +3,7 @@ package domain;
 
 import utils.Tijd;
 
-public abstract class PersoneelsLid implements Kost, Cloneable {
+public abstract class PersoneelsLid implements Kost {
     private String naam;
     private final String personeelsnummer;
     private final int maandAanwerving;
@@ -78,5 +78,8 @@ public abstract class PersoneelsLid implements Kost, Cloneable {
     }
 
     @Override
-    public abstract PersoneelsLid clone();
+    public PersoneelsLid clone() throws CloneNotSupportedException {
+        return (PersoneelsLid) super.clone();
+    }
+
 }

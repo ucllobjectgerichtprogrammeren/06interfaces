@@ -59,12 +59,12 @@ public class FactuurLijn implements Cloneable {
 
     @Override
     public String toString() {
-        return getArtikelnaam()+", "+getAantal()+" stuks, €"+getEenheidsprijs()+" per stuk";
+        return getArtikelnaam() + ", " + getAantal() + " stuks, €" + getEenheidsprijs() + " per stuk";
     }
 
     @Override
-    public FactuurLijn clone() {
-        return new FactuurLijn(this.getArtikelnaam(),this.getAantal(),this.getEenheidsprijs());
+    public FactuurLijn clone() throws CloneNotSupportedException {
+       return (FactuurLijn) super.clone();
     }
 }
 

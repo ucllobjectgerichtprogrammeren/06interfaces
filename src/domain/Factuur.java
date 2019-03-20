@@ -3,7 +3,7 @@ package domain;
 import utils.Tijd;
 
 
-public class Factuur implements Kost, Cloneable {
+public class Factuur implements Kost {
     private final String factuurnummer;
     private int maand;
     private int jaar;
@@ -100,7 +100,7 @@ public class Factuur implements Kost, Cloneable {
         return getFactuurlijnen().length;
     }
 
-    private FactuurLijn[] cloneFactuurlijnen() {
+    private FactuurLijn[] cloneFactuurlijnen() throws CloneNotSupportedException {
         FactuurLijn[] factuurlijnen = new FactuurLijn[geefAantalFactuurLijnen()];
         for (int i = 0; i< geefAantalFactuurLijnen(); i++
              ) {
@@ -111,7 +111,9 @@ public class Factuur implements Kost, Cloneable {
     }
 
     @Override
-    public Factuur clone() {
-        return new Factuur(geefId(),getMaand(),getJaar(),cloneFactuurlijnen());
+    public Factuur clone() throws CloneNotSupportedException {
+        Factuur factuur = (Factuur) super.clone();
+        factuur.setFactuurlijnen(cloneFactuurlijnen());
+        return factuur;
     }
 }

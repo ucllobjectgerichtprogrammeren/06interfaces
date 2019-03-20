@@ -58,13 +58,17 @@ public class KostTest {
     }
 
     @Test
-    public void deep_clone_test_salarispersoneel() {
-        SalarisPersoneelsLid sClone = salarisPersoneelslid1.clone();
-        System.out.println(sClone.toString());
+    public void deep_clone_test_salarispersoneel() throws CloneNotSupportedException {
+        SalarisPersoneelsLid sClone = (SalarisPersoneelsLid) salarisPersoneelslid1.clone();
+        //System.out.println(sClone.toString());
+        assertEquals(salarisPersoneelslid1.toString(),sClone.toString() );
+        assertNotEquals(salarisPersoneelslid1.hashCode(), sClone.hashCode());
+        // https://docs.oracle.com/javase/6/docs/api/java/lang/Object.html#hashCode()
+
     }
 
     @Test
-    public  void deep_clone_test_factuur() {
+    public  void deep_clone_test_factuur() throws CloneNotSupportedException {
         Factuur cloneFactuur1 = factuur1.clone();
         assertEquals(factuur1.toString(),cloneFactuur1.toString());
         factuurLijn1.setArtikelnaam("ietsNieuws");

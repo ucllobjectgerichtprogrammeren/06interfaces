@@ -31,12 +31,9 @@ public class SalarisPersoneelsLid extends PersoneelsLid {
     }
 
     @Override
-    public SalarisPersoneelsLid clone() {
-        return new SalarisPersoneelsLid(geefId(), getNaam(), getMaandAanwerving(), getJaarAanwerving(), getMaandelijksSalaris());
+    public String toString() {
+        return super.toString() + "\nverdient per maand €" + this.getMaandelijksSalaris();
     }
 
-    @Override
-    public String toString() {
-        return super.toString()+"\nverdient per maand €"+this.getMaandelijksSalaris();
-    }
+
 }

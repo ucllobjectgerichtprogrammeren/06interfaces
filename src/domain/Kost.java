@@ -18,6 +18,5 @@ public interface Kost extends Cloneable{
     @Override
     boolean equals (Object o);
 
-    Kost clone();
-
+    Kost clone() throws CloneNotSupportedException;
 }
