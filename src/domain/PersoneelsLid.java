@@ -63,6 +63,9 @@ public abstract class PersoneelsLid implements Kost {
         return personeelsnummer;
     }
 
+    /**
+     * Returnt true indien gegeven object van hetzelfde type is en zijn id gelijk is aan this
+     */
     @Override
     public boolean equals(Object o) {
         if (o == null || o.getClass() != this.getClass())
@@ -73,8 +76,8 @@ public abstract class PersoneelsLid implements Kost {
 
     @Override
     public String toString() {
-        return "Personeelslid met id "+this.geefId()+", naam "+this.getNaam()
-                +"\nAangeworven in "+this.maandAanwerving+"/"+this.jaarAanwerving;
+        return "Personeelslid met id " + this.geefId() + ", naam " + this.getNaam()
+                + "\nAangeworven in " + this.maandAanwerving + "/" + this.jaarAanwerving + "\n";
     }
 
     @Override

@@ -4,6 +4,10 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+
+/**
+ * Een klasse van testen voor de interface Kost en zijn implementaties
+ */
 public class KostTest {
 
 
@@ -19,16 +23,17 @@ public class KostTest {
     Factuur factuur1 = new Factuur("12346", 1, 2019, factuurlijnen);
     Factuur factuur2 = new Factuur("12346", 1, 2020, factuurlijnen);
 
+    // foutenmarge bij assertEquals(double, double)
     double delta = 0.0001;
 
     @Test
-    public void test_geef_kostprijs() {
+    public void test_kostprijs() {
         assertEquals(salarisPersoneelslid1.geefKostprijs(), 1000, delta);
         assertEquals(factuur1.geefKostprijs(), 50, delta);
     }
 
     @Test
-    public void moetNuBetaaldWorden() {
+    public void test_moetNuBetaaldWorden() {
         assertTrue(factuur1.moetNuBetaaldWorden(1, 2019));
         assertFalse(factuur1.moetNuBetaaldWorden(2, 2019));
         assertFalse(factuur1.moetNuBetaaldWorden(1, 2020));
@@ -37,22 +42,25 @@ public class KostTest {
     }
 
     @Test
-    public void equals_personeelslid() {
+    public void test_equals_personeelslid() {
+        // personeelsleden zijn gelijk indien ze hetzelfde personeelsnummer hebben
         assertEquals(new SalarisPersoneelsLid("12345", "Jan", 1, 2019, 1000),
-                (new SalarisPersoneelsLid("12345", "Jan", 1, 2019, 1000)));
+                (new SalarisPersoneelsLid("12345", "Piet", 1, 2019, 1000)));
         assertNotEquals(salarisPersoneelslid1, salarisPersoneelslid2);
     }
 
     @Test
     public void equals_factuur() {
+        // facturen zijn gelijk als ze dezelfde factuurnummer hebben
         assertEquals(new Factuur("12346", 1, 2019, factuurlijnen),
-                new Factuur("12346", 1, 2019, factuurlijnen));
+                new Factuur("12346", 2, 2020, factuurlijnen));
         assertNotEquals(new Factuur("12346", 1, 2019, factuurlijnen),
                 new Factuur("12347", 1, 2019, factuurlijnen));
     }
 
     @Test
-    public void equals_kost() {
+    public void equals_kost_verschillend_type() {
+        // kosten van verschillend type zijn altijd verschillend
         assertNotEquals(new Factuur("12346", 1, 2019, factuurlijnen),
                 new SalarisPersoneelsLid("12346", "Jan", 1, 2019, 1000));
     }

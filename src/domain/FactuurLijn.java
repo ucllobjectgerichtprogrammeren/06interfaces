@@ -1,6 +1,8 @@
 package domain;
 
-public class FactuurLijn implements Cloneable {
+import java.io.Serializable;
+
+public class FactuurLijn implements Cloneable, Serializable {
     private String artikelnaam;
     private int aantal;
     private double eenheidsprijs;

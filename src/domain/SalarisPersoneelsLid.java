@@ -3,7 +3,7 @@ package domain;
 public class SalarisPersoneelsLid extends PersoneelsLid {
     private double maandelijksSalaris;
 
-    protected SalarisPersoneelsLid(String personeelsnummer, String naam, int maandAanwerving, int jaarAanwerving, double maandelijksSalaris) {
+    public SalarisPersoneelsLid(String personeelsnummer, String naam, int maandAanwerving, int jaarAanwerving, double maandelijksSalaris) {
         super(personeelsnummer, naam, maandAanwerving, jaarAanwerving);
         this.setMaandelijksSalaris(maandelijksSalaris);
     }
@@ -32,7 +32,7 @@ public class SalarisPersoneelsLid extends PersoneelsLid {
 
     @Override
     public String toString() {
-        return super.toString() + "\nverdient per maand €" + this.getMaandelijksSalaris();
+        return super.toString() + "verdient per maand €" + this.getMaandelijksSalaris()+"\n";
     }
 
 

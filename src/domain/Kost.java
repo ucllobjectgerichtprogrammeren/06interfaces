@@ -1,6 +1,8 @@
 package domain;
 
-public interface Kost extends Cloneable{
+import java.io.Serializable;
+
+public interface Kost extends Cloneable, Serializable {
     /**
      * berekent de kostprijs van voorliggende kost
      */
@@ -15,6 +17,9 @@ public interface Kost extends Cloneable{
 
     String toString();
 
+    /**
+     * Returnt true indien gegeven object van hetzelfde type is en zijn id gelijk is aan this
+     */
     @Override
     boolean equals (Object o);
 

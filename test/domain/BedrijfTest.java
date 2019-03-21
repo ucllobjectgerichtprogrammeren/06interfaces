@@ -5,6 +5,9 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+/**
+ * Een klasse met testen voor de klasse Bedrijf
+ */
 public class BedrijfTest {
     double delta = 1.e-4;
     PersoneelsLid p1 = new SalarisPersoneelsLid("001", "Jansen", 4, 2014, 2000.00);
@@ -37,7 +40,7 @@ public class BedrijfTest {
 
 
     @Test
-    public void test_voeg_toe_controle_kosten_aanwezig() {
+    public void test_voeg_toe() {
         assertEquals(6, bedrijf.getKosten().size());
         assertNotNull(bedrijf.vind(p1));
         assertNull(bedrijf.vind(nietToegevoegdPersoneelslid));

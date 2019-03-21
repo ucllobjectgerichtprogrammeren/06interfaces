@@ -89,8 +89,11 @@ public class Factuur implements Kost {
         return result;
     }
 
+    /**
+     * Returnt true indien gegeven object van hetzelfde type is en zijn id gelijk is aan this
+     */
     @Override
-    public boolean equals(Object o){
+    public boolean equals(Object o) {
         if (o == null || o.getClass() != this.getClass())
             return false;
         return ((Factuur) o).geefId().equals(this.geefId());
@@ -100,16 +103,22 @@ public class Factuur implements Kost {
         return getFactuurlijnen().length;
     }
 
+    /**
+     * Returnt een deep clone van this.getFactuurlijnen()
+     */
     private FactuurLijn[] cloneFactuurlijnen() throws CloneNotSupportedException {
         FactuurLijn[] factuurlijnen = new FactuurLijn[geefAantalFactuurLijnen()];
-        for (int i = 0; i< geefAantalFactuurLijnen(); i++
-             ) {
-            factuurlijnen[i]= getFactuurlijnen()[i].clone();
+        for (int i = 0; i < geefAantalFactuurLijnen(); i++
+        ) {
+            factuurlijnen[i] = getFactuurlijnen()[i].clone();
         }
         return factuurlijnen;
 
     }
 
+    /**
+     * Returnt een deep clone van this
+     */
     @Override
     public Factuur clone() throws CloneNotSupportedException {
         Factuur factuur = (Factuur) super.clone();
