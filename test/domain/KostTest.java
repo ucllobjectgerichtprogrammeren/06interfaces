@@ -22,6 +22,7 @@ public class KostTest {
     FactuurLijn[] factuurlijnen = {factuurLijn1, factuurLijn2, factuurLijn3};
     Factuur factuur1 = new Factuur("12346", 1, 2019, factuurlijnen);
     Factuur factuur2 = new Factuur("12346", 1, 2020, factuurlijnen);
+    // als kost declareren
 
     // foutenmarge bij assertEquals(double, double)
     double delta = 0.0001;
@@ -70,15 +71,14 @@ public class KostTest {
         SalarisPersoneelsLid sClone = (SalarisPersoneelsLid) salarisPersoneelslid1.clone();
         //System.out.println(sClone.toString());
         assertEquals(salarisPersoneelslid1.toString(),sClone.toString() );
-        assertNotEquals(salarisPersoneelslid1.hashCode(), sClone.hashCode());
-        // https://docs.oracle.com/javase/6/docs/api/java/lang/Object.html#hashCode()
-
+        assertNotSame(salarisPersoneelslid1,sClone);
     }
 
     @Test
     public  void deep_clone_test_factuur() throws CloneNotSupportedException {
         Factuur cloneFactuur1 = factuur1.clone();
         assertEquals(factuur1.toString(),cloneFactuur1.toString());
+        assertNotSame(factuur1, cloneFactuur1);
         factuurLijn1.setArtikelnaam("ietsNieuws");
         assertNotEquals(factuur1.toString(),cloneFactuur1.toString());
 

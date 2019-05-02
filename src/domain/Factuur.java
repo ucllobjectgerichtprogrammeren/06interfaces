@@ -23,6 +23,7 @@ public class Factuur implements Kost {
     }
 
     public FactuurLijn[] getFactuurlijnen() {
+        factuurlijnen.clone();
         return factuurlijnen;
     }
 

@@ -10,18 +10,18 @@ import static org.junit.Assert.*;
  */
 public class BedrijfTest {
     double delta = 1.e-4;
-    PersoneelsLid p1 = new SalarisPersoneelsLid("001", "Jansen", 4, 2014, 2000.00);
-    PersoneelsLid p2 = new SalarisPersoneelsLid("002", "Fransen", 2, 2015, 2087.00);
-    PersoneelsLid p3 = new SalarisPersoneelsLid("003", "Jansen", 4, 2016, 1977.50);
-    Factuur f1 = new Factuur("201601", 2, 2016,
+    Kost p1 = new SalarisPersoneelsLid("001", "Jansen", 4, 2014, 2000.00);
+    Kost p2 = new SalarisPersoneelsLid("002", "Fransen", 2, 2015, 2087.00);
+    Kost p3 = new SalarisPersoneelsLid("003", "Jansen", 4, 2016, 1977.50);
+    Kost f1 = new Factuur("201601", 2, 2016,
             new FactuurLijn("a1", 10, 102.34));
-    Factuur f2 = new Factuur("201602", 2, 2016,
+    Kost f2 = new Factuur("201602", 2, 2016,
             new FactuurLijn("a1", 102, 102.34),
             new FactuurLijn("a12", 21, 200.00));
-    Factuur f3 = new Factuur("201603", 4, 2016,
+    Kost f3 = new Factuur("201603", 4, 2016,
             new FactuurLijn("a7", 85, 1046.50),
             new FactuurLijn("a23", 8, 100.34));
-    SalarisPersoneelsLid nietToegevoegdPersoneelslid =
+    Kost nietToegevoegdPersoneelslid =
             new SalarisPersoneelsLid("000", "Jansen", 4, 2014, 2000.00);
 
 

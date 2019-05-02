@@ -13,9 +13,9 @@ import java.util.ArrayList;
  */
 public class BedrijfMain {
     public static void main(String[] args) {
-        PersoneelsLid p1 = new SalarisPersoneelsLid("001", "Jansen", 4, 2014, 2000.00);
-        PersoneelsLid p2 = new SalarisPersoneelsLid("002", "Fransen", 2, 2015, 2087.00);
-        PersoneelsLid p3 = new SalarisPersoneelsLid("003", "Jansen", 4, 2016, 1977.50);
+        SalarisPersoneelsLid p1 = new SalarisPersoneelsLid("001", "Jansen", 4, 2014, 2000.00);
+        SalarisPersoneelsLid p2 = new SalarisPersoneelsLid("002", "Fransen", 2, 2015, 2087.00);
+        SalarisPersoneelsLid p3 = new SalarisPersoneelsLid("003", "Jansen", 4, 2016, 1977.50);
         Factuur f1 = new Factuur("201601", 2, 2016,
                 new FactuurLijn("a1", 10, 102.34));
         Factuur f2 = new Factuur("201602", 2, 2016,

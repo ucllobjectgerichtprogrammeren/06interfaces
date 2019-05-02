@@ -3,7 +3,7 @@ package domain;
 
 import utils.Tijd;
 
-public abstract class PersoneelsLid implements Kost {
+public abstract class PersoneelsLid implements Cloneable {
     private String naam;
     private final String personeelsnummer;
     private final int maandAanwerving;
@@ -40,26 +40,7 @@ public abstract class PersoneelsLid implements Kost {
         return jaarAanwerving;
     }
 
-    /**
-     * berekent de kostprijs van voorliggende kost
-     */
-    @Override
-    public abstract double geefKostprijs();
-
-    /**
-     * Geeft true als deze kost in gegeven maand en jaar betaald moet worden
-     */
-    @Override
-    public boolean moetNuBetaaldWorden(int maand, int jaar) {
-        if (getJaarAanwerving() < jaar)
-            return true;
-        if (getJaarAanwerving() == jaar)
-            return getMaandAanwerving() < maand;
-        return false;
-    }
-
-    @Override
-    public String geefId() {
+    public String getPersoneelsnummer() {
         return personeelsnummer;
     }
 
@@ -70,13 +51,13 @@ public abstract class PersoneelsLid implements Kost {
     public boolean equals(Object o) {
         if (o == null || o.getClass() != this.getClass())
             return false;
-        return ((PersoneelsLid) o).geefId().equals(this.geefId());
+        return ((PersoneelsLid) o).getPersoneelsnummer().equals(this.getPersoneelsnummer());
 
     }
 
     @Override
     public String toString() {
-        return "Personeelslid met id " + this.geefId() + ", naam " + this.getNaam()
+        return "Personeelslid met id " + this.getPersoneelsnummer() + ", naam " + this.getNaam()
                 + "\nAangeworven in " + this.maandAanwerving + "/" + this.jaarAanwerving + "\n";
     }
 

@@ -1,6 +1,8 @@
 package domain;
 
-public class SalarisPersoneelsLid extends PersoneelsLid {
+import java.io.Serializable;
+
+public class SalarisPersoneelsLid extends PersoneelsLid implements Kost {
     private double maandelijksSalaris;
 
     public SalarisPersoneelsLid(String personeelsnummer, String naam, int maandAanwerving, int jaarAanwerving, double maandelijksSalaris) {
@@ -32,8 +34,30 @@ public class SalarisPersoneelsLid extends PersoneelsLid {
 
     @Override
     public String toString() {
-        return super.toString() + "verdient per maand €" + this.getMaandelijksSalaris()+"\n";
+        return super.toString() + "verdient per maand €" + this.getMaandelijksSalaris() + "\n";
     }
 
+
+    /**
+     * Geeft true als deze kost in gegeven maand en jaar betaald moet worden
+     */
+    @Override
+    public boolean moetNuBetaaldWorden(int maand, int jaar) {
+        if (getJaarAanwerving() < jaar)
+            return true;
+        if (getJaarAanwerving() == jaar)
+            return getMaandAanwerving() < maand;
+        return false;
+    }
+
+    @Override
+    public String geefId() {
+        return getPersoneelsnummer();
+    }
+
+    @Override
+    public SalarisPersoneelsLid clone() throws CloneNotSupportedException {
+        return (SalarisPersoneelsLid) super.clone();
+    }
 
 }
